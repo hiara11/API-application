@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <table>
+        <thead> 
+            <tr> 
+                <th>Nome De Usuario</th>
+                <th>Email</th>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody id="table-body-usuarios"></tbody>
+    </table>
+    <script>
+        const corpoTabelaUsuarios = document.getElementById("table-body-usuarios");
+
+        axios.get('http://localhost:8080/usuarios').then(response => listarUsuarios(response.data));
+        
+        function listarUsuarios(usuarios) {
+            let htmlListaUsuarios = "";
+
+            for (let i = 0; i < usuarios.length; i++) {
+                const usuario = usuarios[i];
+
+                htmlListaUsuarios += `
+                    <tr>
+                        <td>${usuario.nomeUsuario}</td>
+                        <td>${usuario.email}</td>
+                        <td>${usuario.nome}</td>
+                    </tr>`;
+            } 
+
+            corpoTabelaUsuarios.innerHTML = htmlListaUsuarios;
+        }
+    </script>
+</body>
+</html>
