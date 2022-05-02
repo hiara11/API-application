@@ -1,4 +1,15 @@
-
+div:before{
+        content: "DEF - ";
+     }
  table, tr,th,td {
         border: 1.5px solid black;  
+}
+
+fieldset {
+        display: inline;
+        margin-left: 50px;
+}
+
+input {
+        display: block;
 }
