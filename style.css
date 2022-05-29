@@ -1,6 +1,7 @@
-div:before{
-        content: "DEF - ";
-     }
+form {
+        display: flex;
+        justify-content: center;
+}
  table, tr,th,td {
         border: 1.5px solid black;  
 }
